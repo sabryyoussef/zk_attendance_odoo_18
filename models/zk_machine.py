@@ -1,24 +1,5 @@
 # -*- coding: utf-8 -*-
-###################################################################################
-#
-#    Cybrosys Technologies Pvt. Ltd.
-#    Copyright (C) 2020-TODAY Cybrosys Technologies(<http://www.cybrosys.com>).
-#    Author: cybrosys(<https://www.cybrosys.com>)
-#
-#    This program is free software: you can modify
-#    it under the terms of the GNU Affero General Public License (AGPL) as
-#    published by the Free Software Foundation, either version 3 of the
-#    License, or (at your option) any later version.
-#
-#    This program is distributed in the hope that it will be useful,
-#    but WITHOUT ANY WARRANTY; without even the implied warranty of
-#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#    GNU Affero General Public License for more details.
-#
-#    You should have received a copy of the GNU Affero General Public License
-#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
-#
-###################################################################################
+
 import pytz
 import sys
 import datetime
@@ -45,15 +26,30 @@ class HrAttendance(models.Model):
     _inherit = 'hr.attendance'
 
     device_id = fields.Char(string='Biometric Device ID')
+    
+     # Add the relation to API model
+    api_config_id = fields.Many2one(
+        'zk.api.model', 
+        string='API Configuration',
+        help='API Configuration for this device'
+    )
+    
 
 
 class ZkMachine(models.Model):
     _name = 'zk.machine'
+    _description = 'ZK Machine'
+
 
     name = fields.Char(string='Machine IP', required=True)
     port_no = fields.Integer(string='Port No', required=True)
     address_id = fields.Many2one('res.partner', string='Working Address')
     company_id = fields.Many2one('res.company', string='Company', default=lambda self: self.env.user.company_id.id)
+    api_config_id = fields.Many2one(
+        'zk.api.model',
+        string='API Configuration',
+        help='API Configuration for this device'
+    )
 
     def device_connect(self, zk):
         try:

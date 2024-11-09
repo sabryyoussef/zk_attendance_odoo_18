@@ -28,6 +28,8 @@
                 <field name="location_id" options="{'no_create': True}"/>
                 <field name="attendance_state"/>
                 <field name="punch_type"/>
+                 <!-- Only showing device ID in attendance -->
+                <field name="device_id" readonly="1"/>
             </xpath>
         </field>
     </record>

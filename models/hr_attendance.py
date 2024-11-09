@@ -2,6 +2,8 @@ from odoo import fields, models
 
 class HrAttendance(models.Model):
     _inherit = 'hr.attendance'
+    
+    device_id = fields.Char(string='Biometric Device ID')
 
     location_id = fields.Many2one('res.partner', string='Location')
     attendance_state = fields.Selection([

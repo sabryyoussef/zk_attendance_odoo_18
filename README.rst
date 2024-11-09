@@ -1,48 +1,34 @@
-Biometric Device Integration v14
-================================
-This Cybrosys's module integrates Odoo attendance with biometric device attendance.
+Biometric Device Integration v18
+This module integrates Odoo attendance with biometric device attendance.
 
 Features
-========
-* Integrates biometric device(Face+Thumb) with HR attendance.
-* Managing attendance automatically
-* Keeps zk machine history in Odoo
-* Option to configure multiple zk devices
-* Option to clear all zk history from both device and Odoo
-
+Integrates biometric device(Face+Thumb) with HR attendance.
+Managing attendance automatically
+Keeps zk machine history in Odoo
+Option to configure multiple zk devices
+Option to clear all zk history from both device and Odoo
+API feature for integrating with other systems
 Technical Notes
-===============
 Used Libraries:
 
-*This integration is only applicable for the the device ZKteco model 'uFace 202' & 'iFace990'
-* zklib
-you can install zklib library using "sudo pip install zklib"
 
+zklib you can install zklib library using "sudo pip install zklib"
+API Documentation
+The API feature allows you to integrate this module with other systems. The API endpoint is /api/zk_device and it accepts the following methods:
+
+GET: Retrieves a list of all configured zk devices
+POST: Creates a new zk device configuration
+PUT: Updates an existing zk device configuration
+DELETE: Deletes a zk device configuration
 Compatible Devices
-----------------
 This module support with the following machines :
 
- uFace202 (ZKteco)
-* iFace990 (ZKteco)
 
-Clients have reported that the module works well with the following machine :
-
-* K40 Pro (ZKteco)
-* SFace900 (ZKteco)
-* FR1500 (ZKteco)
-* UA760 (ZKteco)
-* MB10 (ZKteco
+Testing Status
+This module is currently under testing for different models. It may work with some models but not others. Please report any issues or successes to the author.
 
 Author
-=======
-* Cybrosys Techno Solutions <https://www.cybrosys.com>
-
+Dr. Sabry Youssef https://www.vetbrains.com
 Credits
-=======
-Developer: Niyas Raphy @ Cybrosys, odoo@cybrosys.com V11
-Developer: Jesni Banu @ cybrosys, odoo@cybrosys.com  V10
-Developer: Basith @ Cybrosys, odoo@cybrosys.com     V12
-Developer: Varsha Vivek @ Cybrosys, odoo@cybrosys.com V13
-Developer: Ijaz Ahammed @ Cybrosys, odoo@cybrosys.com V14
-Developer: Mostafa Shokiel , mostafa.shokiel@gmail.com
+Developer: Dr. Sabry Youssef, sabry.youssef@vetbrains.com
 
